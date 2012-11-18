@@ -84,10 +84,10 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1
-		p("\n" + 
-"<p>The outer most content is cached for 20 seconds, using the CacheFor annotation. ");// line 1
-		p(new Date());// line 4
-		p("</p>\n" + 
+		p("<p>The outer most content is cached for 20 seconds, using the \n" + 
+"<em>Cached</em> annotation. <h3>");// line 1
+		p(new Date().getSeconds());// line 4
+		p("</h3></p>\n" + 
 "\n" + 
 "<div>\n" + 
 "	<p>this part is never cached.</p>\n" + 
@@ -113,7 +113,7 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 "\n" + 
 "<div>\n" + 
 "    <p>this part is cached for 4 seconds, \n" + 
-"    specified with CacheFor annotation in the controller. </p>\n" + 
+"    specified with a Cached annotation in the controller. </p>\n" + 
 "    ");// line 13
 				actionRunners.put(getOut().length(), new cn.bran.play.CacheablePlayActionRunner("", controllers.more.Portlets.class, "panel3", a + b) {
 			@Override

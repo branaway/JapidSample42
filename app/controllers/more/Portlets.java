@@ -1,13 +1,15 @@
 package controllers.more;
 import java.util.Date;
 
+import play.cache.Cached;
 import play.mvc.Result;
 import cn.bran.play.JapidController;
 
 public class Portlets extends JapidController {
-//	@CacheFor("20s")
+
+	@Cached(duration=20, key="")
 	public static Result index() {
-		return renderJapid("a", "b");
+		return ok(renderJapid("a", "b"));
 	}
 
 	public static Result panel1(String a) {
@@ -19,9 +21,9 @@ public class Portlets extends JapidController {
 		return renderJapid(b);
 	}
 
-//	@CacheFor("5s")
+	@Cached(duration=4, key = "")
 	public static Result panel3(String whatever) {
 		System.out.println("panel3 called");
-		return renderText("<div>" + new Date() + "</div>");
+		return renderText("<div><h3>" + new Date().getSeconds() + "</h3></div>");
 	}
 }

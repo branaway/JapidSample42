@@ -65,15 +65,21 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 	}
 ////// end of named args stuff
 
-	private String f1; // line 2
-	private String f2; // line 2
-	private String body; // line 2
+	private String f1; // line 1
+	private String f2; // line 1
+	private String body; // line 1
 	public cn.bran.japid.template.RenderResult render(String f1,String f2,String body) {
 		this.f1 = f1;
 		this.f2 = f2;
 		this.body = body;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2
+		 __t = System.nanoTime();
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 1
+     	String __l = "" + (System.nanoTime() - __t) / 100000;
+		int __len = __l.length();
+		__l = __l.substring(0, __len - 1) + "." +  __l.substring(__len - 1);
+
+		System.out.println("[dumpPost] rendering time(ms): " + __l);
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -84,30 +90,43 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
 //------
-p("\n");// line 1
+;// line 1
+		p("\n" + 
+"\n");// line 3
 p("\n" + 
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n" + 
 "<html>\n" + 
 "<head>\n" + 
 "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" + 
-"<title>Insert title here</title>\n" + 
+"<title>Security Token</title>\n" + 
 "</head>\n" + 
 "<body>\n" + 
+"<p><a href=\"/\">back</a></p>\n" + 
+"<p>there is a hidden field that is a token for authenticity of this submission: ");// line 6
+		try { p(escape(authenticityToken())); } catch (NullPointerException npe) {}// line 16
+		p("\n" + 
+"</p>\n" + 
+"<p>");// line 16
+		try { p(flash.get("msg")); } catch (NullPointerException npe) {}// line 18
+		p("</p>\n" + 
 "<form method=\"POST\" action=\"/Application/dumpPost\">\n" + 
-"	<input type=\"text\" width=\"30\" name=\"f1\" value=\"");// line 3
-		try { p(f1); } catch (NullPointerException npe) {}// line 13
+"	");// line 18
+		try { p(authenticityToken()); } catch (NullPointerException npe) {}// line 20
+		p("\n" + 
+"	<input type=\"text\" width=\"30\" name=\"f1\" value=\"");// line 20
+		try { p(f1); } catch (NullPointerException npe) {}// line 21
 		p("\"/>\n" + 
-"	<input type=\"text\" width=\"30\" name=\"f2\" value=\"");// line 13
-		try { p(f2); } catch (NullPointerException npe) {}// line 14
+"	<input type=\"text\" width=\"30\" name=\"f2\" value=\"");// line 21
+		try { p(f2); } catch (NullPointerException npe) {}// line 22
 		p("\"/>\n" + 
-"	<input type=\"text\" width=\"50\" name=\"body\" value=\"");// line 14
-		try { p(body); } catch (NullPointerException npe) {}// line 15
+"	<input type=\"text\" width=\"50\" name=\"body\" value=\"");// line 22
+		try { p(body); } catch (NullPointerException npe) {}// line 23
 		p("\"/>\n" + 
 "	<input type=\"submit\"/>\n" + 
 "</form>\n" + 
 "\n" + 
 "</body>\n" + 
-"</html>");// line 15
+"</html>");// line 23
 		
 		endDoLayout(sourceTemplate);
 	}

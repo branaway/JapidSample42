@@ -1,7 +1,7 @@
 `args String a, String b
 
-
-<p>The outer most content is cached for 20 seconds, using the CacheFor annotation. ${new Date()}</p>
+<p>The outer most content is cached for 20 seconds, using the 
+<em>Cached</em> annotation. <h3>${new Date().getSeconds()}</h3></p>
 
 <div>
 	<p>this part is never cached.</p>
@@ -15,6 +15,6 @@
 
 <div>
     <p>this part is cached for 4 seconds, 
-    specified with CacheFor annotation in the controller. </p>
+    specified with a Cached annotation in the controller. </p>
     `a controllers.more.Portlets.panel3(a + b)
 </div>

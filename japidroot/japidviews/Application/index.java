@@ -130,17 +130,15 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 "	local variables requires final attribute</a></li>\n" + 
 "	<li><a href=\"go/templates/suppressNull.html\">suppressNull,\n" + 
 "	a directive to allow safe navigation in expression, default off</a></li>\n" + 
-"	<li><a href=\"application/dumpPost/a/bb/ccc\">show how to dump a post\n" + 
-"	detail with japid.dump.request spec in the application.conf. see\n" + 
-"	console for output.</a></li>\n");// line 20
+"	<li><a href=\"application/dumpPost/a/bb/ccc\">using authentic token to secure form submission</a></li>\n");// line 20
 		p("\n" + 
 "	<li><a href=\"application/in\">action forwarding </a></li>\n" + 
 "	<li><a href=\"go/templates/openBrace.html\"> use\n" + 
 "	`{ in if and while </a></li>\n" + 
-"	<li><a href=\"application/escapedExpr\"> ");// line 57
+"	<li><a href=\"application/escapedExpr\"> ");// line 55
 		p("\n" + 
 "	raw expression with ${} and html-safe expression with ~{}\n" + 
-"	");// line 61
+"	");// line 59
 		p("	</li>\n" + 
 "	<li><a href=\"more.ContentNegotiation/index\">content\n" + 
 "	negotiation. Not quite working yet.</a> Use tools like CURL to test it: <pre>curl -i -H \"Accept: application/json\" http://127.0.0.1:9000/more.ContentNegotiation/index</pre>\n" + 
@@ -153,29 +151,29 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 "	<li><a href=\"more.MyController/quickview\"> Use relative path\n" + 
 "	in layout spec and tags</a>: prefix the layout name or the tag name with a\n" + 
 "	dot \".\" to let the compiler prefix the path with the current package.\n" + 
-"	This saves using the full and long class qualifications.</li>\n");// line 63
-		String na = "bran";// line 77
-int ag = 123;// line 78
-		;// line 78
+"	This saves using the full and long class qualifications.</li>\n");// line 61
+		String na = "bran";// line 75
+int ag = 123;// line 76
+		;// line 76
 		p("\n" + 
 "    <li> using the <em>flash</em> object\n" + 
-"		<ul>\n");// line 81
+"		<ul>\n");// line 79
 		p("\n" + 
-"			<li><a href=\"");// line 86
-		p(controllers.routes.Application.reverseUrl());// line 87
-		p("\">flash with a message</a></li>\n");// line 87
+"			<li><a href=\"");// line 84
+		p(controllers.routes.Application.reverseUrl());// line 85
+		p("\">flash with a message</a></li>\n");// line 85
 		p("\n" + 
 "			<li><a href=\"application/flashmsg\">flash with a message</a></li>\n" + 
 "		</ul>\n" + 
 "    </li>\n" + 
-"    ");// line 90
+"    ");// line 88
 		p("\n" + 
 "	<li><a href=\"/assets/images/favicon.png\">static mapping</a></li>\n" + 
 "</ul>\n" + 
 "\n" + 
-"<p>app modeis DEV? \"");// line 99
-		p(_play.isDev());// line 103
-		p("\"</p>\n");// line 103
+"<p>app modeis DEV? \"");// line 97
+		p(_play.isDev());// line 101
+		p("\"</p>\n");// line 101
 		
 		endDoLayout(sourceTemplate);
 	}

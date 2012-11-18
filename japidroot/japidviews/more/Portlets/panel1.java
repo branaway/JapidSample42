@@ -83,9 +83,11 @@ boolean hasHttpContext = play.mvc.Http.Context.current.get() != null ? true : fa
 ;// line 1
 		p("<p>panel-1 ");// line 1
 		p(s);// line 3
-		p(" : ");// line 3
-		p(new Date());// line 3
-		p("</p>\n");// line 3
+		p(" : \n" + 
+"<h3>\n");// line 3
+		p(new Date().getSeconds());// line 5
+		p("</h3>\n" + 
+"</p>\n");// line 5
 		
 		endDoLayout(sourceTemplate);
 	}
