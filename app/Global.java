@@ -5,5 +5,6 @@ public class Global extends JapidRenderer {
 	public void onStartJapid() {
 		addImport("japidviews._layouts.*");
 		addImport("japidviews._tags.*");
+		setKeepJavaFiles(false);
 	}
 }

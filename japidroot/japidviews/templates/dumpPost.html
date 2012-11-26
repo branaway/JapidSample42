@@ -12,12 +12,13 @@
 <title>Security Token</title>
 </head>
 <body>
+`String token = authenticityToken();
 <p><a href="/">back</a></p>
-<p>there is a hidden field that is a token for authenticity of this submission: ~authenticityToken()
+<p>there is a hidden field that is a token for authenticity of this submission: ~token
 </p>
 <p>$flash.get("msg")</p>
 <form method="POST" action="/Application/dumpPost">
-	$authenticityToken()
+	$token
 	<input type="text" width="30" name="f1" value="$f1"/>
 	<input type="text" width="30" name="f2" value="$f2"/>
 	<input type="text" width="50" name="body" value="$body"/>

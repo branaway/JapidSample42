@@ -13,7 +13,7 @@ import models.japidsample.Post;
 import play.data.Form;
 import play.mvc.Http.Request;
 import play.mvc.Result;
-import authtoken.validator.AuthenticityToken;
+import cn.bran.japid.template.AuthenticityCheck;
 import cn.bran.japid.template.RenderResult;
 import cn.bran.play.JapidController;
 import cn.bran.play.JapidResult;
@@ -288,12 +288,8 @@ public class Application extends JapidController {
 		return renderJapidWith("templates/dumpPost.html", f1, f2, body);
 	}
 
+	@AuthenticityCheck
 	public static class Dump {
-		@AuthenticityToken
-		public String authtoken;
-		// the name must be this constant! XXX not so
-		// nice. Can be placed in a super class
-
 		public String f1, f2, body;
 	}
 
